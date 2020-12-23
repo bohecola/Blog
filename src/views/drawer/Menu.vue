@@ -14,19 +14,19 @@
         </v-list-item>
       </v-list-item-group>
       <!-- 切换开关 -->
-      <v-list-item-group>
-      <v-list-item inactive :ripple="false" v-model="$vuetify.theme.dark" class="theme-item">
-        <v-list-item-icon>
-          <v-icon v-if="$vuetify.theme.dark" v-text="lightIcon"></v-icon>
-          <v-icon v-else v-text="darkIcon"></v-icon>
-        </v-list-item-icon>
+      <!-- <v-list-item-group>
+        <v-list-item inactive :ripple="false" v-model="$vuetify.theme.dark" class="theme-item">
+          <v-list-item-icon>
+            <v-icon v-if="$vuetify.theme.dark" v-text="lightIcon"></v-icon>
+            <v-icon v-else v-text="darkIcon"></v-icon>
+          </v-list-item-icon>
 
-        <v-list-item-content>
-          <v-list-item-title v-if="$vuetify.theme.dark">夜间模式</v-list-item-title>
-          <v-list-item-title v-else>日间模式</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      </v-list-item-group>
+          <v-list-item-content>
+            <v-list-item-title v-if="$vuetify.theme.dark">夜间模式</v-list-item-title>
+            <v-list-item-title v-else>日间模式</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-item-group> -->
     </v-list>
   </div>
 </template>

@@ -17,10 +17,12 @@
     </v-app-bar>
 
     <v-main>
-      {{ windowSize }} {{bar}}
-      <keep-alive exclude="Article">
-        <router-view></router-view>
-      </keep-alive>
+      <!-- {{ windowSize }} {{bar}} -->
+      <v-container>
+        <keep-alive exclude="Article">
+          <router-view></router-view>
+        </keep-alive>
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -39,7 +41,7 @@ export default {
   },
 
   data: () => ({
-    mobile_breakpoint: 100,
+    mobile_breakpoint: 960,
     drawer: null ,
     bar: false,
     windowSize: {
