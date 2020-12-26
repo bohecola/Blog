@@ -43,7 +43,7 @@ export default {
   data: () => ({
     mobile_breakpoint: 960,
     drawer: null ,
-    bar: false,
+    bar: true,
     windowSize: {
       x: 0,
       y: 0,
@@ -53,7 +53,7 @@ export default {
   methods: {
     onResize () {
       this.windowSize = { x: window.innerWidth, y: window.innerHeight }
-      this.bar = this.windowSize.x >= this.mobile_breakpoint ? false : true
+      // this.bar = this.windowSize.x >= this.mobile_breakpoint ? false : true
     },
   },  
 };

@@ -1,12 +1,5 @@
 <template>
-  <v-card class="mx-auto" :loading="loading">
-    <template slot="progress">
-      <v-progress-linear
-        color="green lighten-1"
-        height="4"
-        indeterminate
-      ></v-progress-linear>
-    </template>
+  <v-card class="mx-auto">
     <v-list>
       <template v-for="(item, index) in articleList">
         <v-list-item :key="item.index" class="list-item" @click="itemClick(item)">
@@ -31,7 +24,6 @@
   export default {
     name: 'ArticleList',
     data: () => ({
-      loading: false,
       articleList: []
     }),
     mounted() {
@@ -39,10 +31,8 @@
     },
     methods: {
       getData() {
-        this.loading = true
         let obj = { page: null, user_id: 1,}
         getArticleList(obj).then(res => {
-          this.loading = false
           this.articleList = res
         })
       },
@@ -55,7 +45,7 @@
 
 <style scoped>
   .v-card {
-    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.1) !important;
   }
   .list-item {
     cursor: pointer;

@@ -1,12 +1,5 @@
 <template>
-  <v-card class="mx-auto" flat :loading="loading">
-    <template slot="progress">
-      <v-progress-linear
-        color="green lighten-1"
-        height="4"
-        indeterminate
-      ></v-progress-linear>
-    </template>
+  <v-card class="mx-auto" flat>
     <h1 class="article-title">{{ article.title }}</h1>
     <p class="article-subtitle">{{ article.created_at }}</p>
     <v-md-preview :text="article.content"></v-md-preview>
@@ -31,7 +24,6 @@
   export default {
     name: 'Article',
     data: () => ({
-      loading: false,
       article: {},
     }),
     mounted() {
@@ -40,9 +32,7 @@
     methods: {
       getData() {
         let obj = { id: this.$route.params.id }
-        this.loading = true
         getArticleDetail(obj).then(res => {
-          this.loading = false
           this.article = res
         })
       }
