@@ -1,49 +1,90 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Layout from '@/layout'
 
-  const ArticleList = () =>import('@/views/articlelist/ArticleList')
-  const Article = () =>import('@/views/article/Article')
-  const Album = () => import('@/views/album/Album')
-  const Tool = () => import('@/views/tool/Tool')
-  const Game = () => import('@/views/game/Game')
-  const NotFound = () => import('@/views/notfound/NotFound')
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
-// 1.安装插件
+NProgress.configure({
+  showSpinner: false
+})
+
+// 1. 安装插件
 Vue.use(VueRouter)
 
-// 2.创建router
+// 2. 创建router
 const routes = [
   {
-    // 前台
-    path: '',
-    component: ArticleList,
-  },
-  {
     path: '/',
-    component: ArticleList
+    component: Layout,
+    hidden: true,
+    redirect: '/content'
   },
-  // 展示对应 id 的博文
   {
-    path: '/article/:id' ,
-    name: 'article',
-    component: Article,
+    path: '/content',
+    component: Layout,
+    meta: { title: '目录', icon: 'mdi-format-list-bulleted' },
+    children: [
+      {
+        path: '',
+        meta: { title: '目录' },
+        component: () => import('@/views/content/Content')
+      },
+      {
+        path: '/article/:id',
+        hidden: true,
+        meta: { title: '文章' },
+        component: () => import('@/views/content/detail/index')
+      }
+    ]
   },
   {
     path: '/album',
-    component: Album
-  },
-  {
-    path: '/tool',
-    component: Tool
+    meta: { title: '专辑', icon: 'mdi-album' },
+    component: Layout,
+    children: [
+      {
+        path: '',
+        meta: { title: '专辑' },
+        component: () => import('@/views/album/Album')
+      }
+    ]
   },
   {
     path: '/game',
-    component: Game
+    meta: { title: '娱乐', icon: 'mdi-palette' },
+    component: Layout,
+    children: [
+      {
+        path: '',
+        meta: { title: '娱乐' },
+        component: () => import('@/views/game/Game')
+      }
+    ]
+  },
+  {
+    path: '/tool',
+    meta: { title: '工具', icon: 'mdi-apps' },
+    component: Layout,
+    children: [
+      {
+        path: '',
+        meta: { title: '工具' },
+        component: () => import('@/views/tool/Tool')
+      }
+    ]
   },
   {
     path: '*',
-      name: 'notfount',
-      component: NotFound
+    hidden: true,
+    component: Layout,
+    children: [
+      {
+        path: '',
+        meta: { title: '404' },
+        component: () => import('@/views/error-page/404')
+      }
+    ]
   }
 ]
 
@@ -53,9 +94,13 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  // document.title = to.matched[0].meta.title
-  document.title = 'かぐや'
+  NProgress.start()
+  document.title =  to.meta.title + ' - Bohecola\'s Blog'
   next()
 })  
+
+router.afterEach(() => {
+  NProgress.done()
+})
 
 export default router

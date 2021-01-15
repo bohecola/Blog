@@ -9,12 +9,15 @@
 
 <script>
   export default {
-    name: 'NotFound',
+    name: 'Page404',
     methods: {
       ToIndexClick() {
         this.$router.push('/')
       }
-    }
+    },
+    beforeCreate () {
+      document.querySelector('html').setAttribute('style', 'overflow-y:auto')
+    },
   }
 </script>
 

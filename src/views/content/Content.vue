@@ -1,8 +1,8 @@
 <template>
-  <v-card class="mx-auto">
+  <v-card v-if="showList" class="mx-auto">
     <v-list>
       <template v-for="(item, index) in articleList">
-        <v-list-item :key="item.index" class="list-item" @click="itemClick(item)">
+        <v-list-item :key="item.index" :to="'/article/' + item.id" class="list-item">
           <template v-slot:default>
             <v-list-item-content>
               <v-list-item-title class="list-title">{{ item.title }}</v-list-item-title>
@@ -22,8 +22,9 @@
   import { getArticleList } from '@/api/article'
 
   export default {
-    name: 'ArticleList',
+    name: 'Content',
     data: () => ({
+      showList: false,
       articleList: []
     }),
     mounted() {
@@ -31,13 +32,13 @@
     },
     methods: {
       getData() {
-        let obj = { page: null, user_id: 1,}
-        getArticleList(obj).then(res => {
-          this.articleList = res
+        let query = { page: null, user_id: 1 }
+
+        getArticleList(query).then(response => {
+          const { data } = response
+          this.articleList = data
+          this.showList = true
         })
-      },
-      itemClick(item) {
-        this.$router.push({name: 'article', params:{id: item.id}})
       }
     }
   }
@@ -50,7 +51,7 @@
   .list-item {
     cursor: pointer;
     padding: 0 2%;
-    font-family: 'Times New Roman','KaiTi' !important;
+    font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
     transition: 0.2s ease-in-out;
   }
   .list-title {

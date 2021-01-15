@@ -10,16 +10,7 @@ Vue.use(Vuex)
 
 // 2.创建Store对象
 const state = {
-  token: '',
-  isLogin: false,
-  user: {},
-  isNotice: false,
-  myInfo: {
-    name: null,
-    avatar: null,
-    introduction: null
-  },
-  // theme: $vuetify.theme.dark
+  
 }
 const store = new Vuex.Store({
   state,

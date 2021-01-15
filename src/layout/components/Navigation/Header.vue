@@ -1,14 +1,14 @@
 <template>
-  <v-container style="padding-top: 30px;" fluid>
+  <v-container style="padding-top: 30px;">
     <v-row justify="space-around">
-      <v-avatar size="80">
+      <v-avatar size="80" color="grey">
         <img class="avatar" :src="userInfo.avatar" :alt="userInfo.name">
       </v-avatar>
     </v-row>
     <v-row justify="space-around">
       <v-subheader style="font-family: 'Georgia','KaiTi';font-size: 18px;letter-spacing: 2px;">{{ userInfo.name }}</v-subheader>
     </v-row>
-  </v-container>
+  </v-container >
 </template>
 
 <script>
@@ -23,9 +23,10 @@ export default {
   },
   methods: {
     getData() {
-      let obj = { id: 1 }
-      getUserInfo(obj).then(res => {
-        this.userInfo = res
+      let query = { id: 1 }
+      getUserInfo(query).then(response => {
+        const { data } = response
+        this.userInfo = data
       })
     }
   }

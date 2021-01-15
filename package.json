@@ -13,8 +13,9 @@
     "core-js": "^3.6.5",
     "nprogress": "^0.2.0",
     "vue": "^2.6.11",
+    "vue-m-message": "^3.1.0",
     "vue-router": "^3.4.9",
-    "vuetify": "^2.2.11",
+    "vuetify": "^2.4.1",
     "vuex": "^3.6.0"
   },
   "devDependencies": {
