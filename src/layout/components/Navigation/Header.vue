@@ -1,12 +1,12 @@
 <template>
-  <v-container style="padding-top: 30px;">
-    <v-row justify="space-around">
+  <v-container>
+    <v-row justify="space-around" style="margin: 20px 0 0;">
       <v-avatar size="80" color="grey">
         <img class="avatar" :src="userInfo.avatar" :alt="userInfo.name">
       </v-avatar>
     </v-row>
-    <v-row justify="space-around">
-      <v-subheader style="font-family: 'Georgia','KaiTi';font-size: 18px;letter-spacing: 2px;">{{ userInfo.name }}</v-subheader>
+    <v-row justify="space-around" style="margin: 0;">
+      <v-subheader style="font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Helvetica, STKaiti, SimSun, serif;;font-size: 18px;letter-spacing: 2px;">{{ userInfo.name }}</v-subheader>
     </v-row>
   </v-container >
 </template>
