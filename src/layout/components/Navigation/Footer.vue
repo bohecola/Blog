@@ -20,23 +20,9 @@
 </template>
 
 <script>
-  import {
-    mdiAccount,
-    mdiPencil,
-    mdiShareVariant,
-    mdiDelete,
-    mdiPolice,
-  } from '@mdi/js'
 export default {
   name: 'Footer',
   data: () => ({
-          icons: {
-        mdiAccount,
-        mdiPencil,
-        mdiShareVariant,
-        mdiDelete,
-        mdiPolice
-      },
     social_media: [
       {
         icon: 'mdi-github',

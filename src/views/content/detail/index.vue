@@ -7,14 +7,7 @@
 </template>
 
 <script>
-  import Vue from 'vue';
-  import VMdPreview from '@kangc/v-md-editor/lib/preview';
-  import '@kangc/v-md-editor/lib/style/preview.css';
-  import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
-
-  import { getArticleDetail } from '@/api/article'
-  VMdPreview.use(vuepressTheme)
-  Vue.use(VMdPreview)
+  import { getArticleDetail } from '@/api/article';
 
   export default {
     name: 'Detail',
@@ -42,18 +35,12 @@
     color: #666;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
   }
-
   .article-title {
     font-size: 1.5rem;
   }
-
   /* 编辑器基础样式 */
   .v-md-editor-preview{
     padding: 0;
-  }
-
-  .v-md-editor-preview pre {
-    margin: 16px 0 !important;
   }
 
   /* 编辑器图片样式 */
@@ -69,16 +56,14 @@
   }
   
   /* ----------- 不变样式 ----------- */
-  /* 编辑器背景透明（不包括代码块背景） */
-  .github-markdown-body div[class*='v-md-pre-wrapper-'] {
-    background-color: transparent !important;
-  }
   /* 代码块样式 */
   .v-md-editor-preview >>> pre {
     margin: 16px 0 !important;
   }
-
   .v-md-editor-preview >>> h3 {
+    margin: 24px 0 16px 0;
+  }
+  .v-md-editor-preview >>> h4 {
     margin: 24px 0 16px 0;
   }
   /* 图片样式 */
