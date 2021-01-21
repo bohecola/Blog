@@ -6,7 +6,7 @@
       </v-avatar>
     </v-row>
     <v-row justify="space-around" style="margin: 0;">
-      <v-subheader style="font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Helvetica, STKaiti, SimSun, serif;;font-size: 18px;letter-spacing: 2px;">{{ userInfo.name }}</v-subheader>
+      <v-subheader style="font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Helvetica, STKaiti, SimSun, serif; font-size: 18px; letter-spacing: 2px;">{{ userInfo.name }}</v-subheader>
     </v-row>
   </v-container >
 </template>

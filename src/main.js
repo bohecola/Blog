@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 
+import "./scss/app.scss"
+
 import Message from 'vue-m-message'
 import 'vue-m-message/dist/index.css'
 
